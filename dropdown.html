@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropdown toggle</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            background-color: yellow;
+        }
+        .item{
+            border-bottom: 1px solid black;
+            padding: 10px 0 10px 0;
+            position: relative;
+        }
+        .item p{
+            height:0;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+        }
+        .item p.active{
+            height: 100px;
+        }
+        button{
+            display: flex;  /* helps cross align properly */
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+            height: 40px ;
+            border: none;
+            background: transparent;
+            position: absolute;
+            top: 0px;
+            cursor: pointer;
+            padding-right: 30%;
+            font-size: 25px;
+            
+        }
+        button .cross{
+            display: block;
+            width: 15px;
+            height: 5px;
+            background-color: blue;
+            margin: 2px;
+        }
+        button .cross-hor{
+            transform: translateY(7px);
+        }
+        button .cross-ver{
+            transform: rotate(90deg);
+            transition: all 0.3s ease;
+        }
+        .btn-cross-box{
+            display: inline-block;
+        }
+        .active-cross .btn-cross-box .cross-ver{
+            /* opacity: 0; */
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="item1 item ">
+            <h2>How do I play?</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+            </p>
+            <button>
+                <div class="btn-cross-box">
+                    <span class="cross cross-hor"></span>
+                    <span class="cross cross-ver"></span>
+                </div>
+            </button>
+        </div>
+        <div class="item1 item ">
+            <h2>How do I play?</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+            </p>
+            <button>
+                <div class="btn-cross-box">
+                    <span class="cross cross-hor"></span>
+                    <span class="cross cross-ver"></span>
+                </div>
+            </button>
+        </div>
+        <div class="item1 item ">
+            <h2>How do I play?</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quasi.
+            </p>
+            <button>
+                <div class="btn-cross-box">
+                    <span class="cross cross-hor"></span>
+                    <span class="cross cross-ver"></span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+       let item = document.getElementsByClassName("item");
+    //    item.forEach(element => {
+    //      console.log(element.children);
+    //    });
+       Array.prototype.forEach.call(item, element => {
+        // console.log(element.children[1])
+        let btn = element.children[2] ;
+        let description = element.children[1];
+        btn.addEventListener("click",function(){
+           // console.log("I am Clicked");
+           description.classList.toggle("active");
+           btn.classList.toggle("active-cross");
+        })
+        console.log(element);
+        });
+        console.log(item);
+        
+    </script>
+
+</body>
+</html>
