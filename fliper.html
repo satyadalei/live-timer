@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        *{
+            font-size: larger;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="timer">
+        <div> <span id="hour"></span> Hour</div>
+        <div> <span id="minute" ></span> Minutes</div>
+        <div> <span id="secand" ></span> Seconds</div>
+    </div>
+
+
+    <script>
+       
+        function updateTime(){
+                let hourBox = document.getElementById("hour");
+                let minuteBox =  document.getElementById("minute");
+                let secondBox = document.getElementById("secand") ;
+
+                let hourTime = new Date().getHours() ;
+                let minuteTime = new Date().getMinutes() ;
+                let secondTime =  new Date().getSeconds();
+
+                hourBox.innerHTML = hourTime;
+                minuteBox.innerHTML = minuteTime;
+                secondBox.innerHTML = secondTime;
+        }
+        setInterval(updateTime,1000);
+    </script>
+
+</body>
+</html>
